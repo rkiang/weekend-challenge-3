@@ -19,7 +19,7 @@ var taskArray = [
 
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use(express.static('public'));
+app.use(express.static('server/public'));
 
 app.get('/tasks', function(req, res) {
     console.log('app.get test', taskArray);
