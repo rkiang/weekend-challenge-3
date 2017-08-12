@@ -2,17 +2,6 @@ var express = require('express');
 var router = express.Router();
 var pool = require('../modules/pool');
 
-// var taskArray = [
-//     {
-//         task: 'blue',
-//     },
-//     {
-//         task: 'red',
-//     },
-//     {
-//         task: 'green'
-//     }];
-
 router.get('/', function (req, res) {
     console.log('router.get test');
     pool.connect(function (errorConnectingToDatabase, client, done) {
@@ -41,7 +30,7 @@ router.post('/', function (req, res) {
             console.log('Error connecting to database', errorConnectingToDatabase);
             res.sendStatus(500);
         } else {
-            client.query('INSERT INTO tasks_table (item) VALUES ($1);', [req.body.task], function (errorMakingQuery, result) {
+            client.query("INSERT INTO tasks_table (item, status) VALUES ($1, 'incomplete');", [req.body.task], function (errorMakingQuery, result) {
                 done();
                 if (errorMakingQuery) {
                     console.log('Error making database query', errorMakingQuery);
