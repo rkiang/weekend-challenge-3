@@ -6,32 +6,13 @@ var bodyParser = require('body-parser');
 
 var port = 5000;
 
-var taskArray = [
-    {
-        task: 'blue', 
-    },
-    {
-        task: 'red', 
-    },
-    {
-        task: 'green'
-    }];
+var tasks = require('./routes/routes')
 
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.static('server/public'));
 
-app.get('/tasks', function(req, res) {
-    console.log('app.get test', taskArray);
-    res.send(taskArray);
-})
-
-app.post('/tasks', function(req, res) {
-    console.log('app.post test', req.body);
-    taskArray.push(req.body);
-    res.sendStatus(201);
-    
-})
+app.use('/tasks', tasks);
 
 app.listen(port, function(){
     console.log('Listening on port', port);
