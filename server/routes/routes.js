@@ -35,10 +35,23 @@ router.get('/', function (req, res) {
 })
 
 router.post('/', function (req, res) {
-    console.log('app.post test', req.body);
-    taskArray.push(req.body);
-    res.sendStatus(201);
-
+    console.log('router.post test');
+    pool.connect(function (errorConnectingToDatabase, client, done) {
+        if (errorConnectingToDatabase) {
+            console.log('Error connecting to database', errorConnectingToDatabase);
+            res.sendStatus(500);
+        } else {
+            client.query('INSERT INTO tasks_table (item) VALUES ($1);', [req.body.task], function (errorMakingQuery, result) {
+                done();
+                if (errorMakingQuery) {
+                    console.log('Error making database query', errorMakingQuery);
+                    res.sendStatus(500);
+                } else {
+                    res.sendStatus(200)
+                }
+            })
+        }
+    })
 })
 
 module.exports = router;
