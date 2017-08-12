@@ -16,11 +16,11 @@ function getTasks() {
     $.ajax({
         method: 'GET',
         url: '/tasks',
-        success: function (data) {
-            console.log('getTasks is:', data);
-            tasksToBody(data)
+        success: function (response) {
+            console.log('getTasks is:', response);
+            tasksToBody(response);
         }
-    })
+    });
 }
 
 function postTasks(newTaskAdded) {
@@ -41,6 +41,9 @@ function tasksToBody(array) {
     $('#toDoList').empty();
     for (var i = 0; i < array.length; i++) {
         var tasks = array[i];
-        $('#toDoList').append('<div>' + tasks.task + '</div>');
+        // var tasksDiv = $('<li></li>');
+        // tasksDiv.data('id', tasks.user_id);
+        // $('#incompleteTasks').append(tasksDiv);
+        $('#toDoList').append('<li>' + tasks.item + '</li>');
     }
 }
