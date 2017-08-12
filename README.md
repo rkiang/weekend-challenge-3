@@ -1,8 +1,8 @@
-#To-Do List Application
+# To-Do List Application
 
-##Base Mode
+## Base Mode
 - [x] Create client side function to add tasks
-- [ ] Create server side to store functions
+- [x] Create server side to store functions
 - [ ] Make SQL table and add info to .sql file
 - [ ] Connect server side to database storage
 - [ ] Add a 'complete' and 'delete' button
