@@ -4,10 +4,8 @@ $(document).ready(function () {
     // complete button function
     $('#toDoList').on('click', '.completeButton', function () {
         console.log('complete button was clicked');
-        // var taskId = tasks.id;
         var idTask = $(this).parent().parent().data().id;
         console.log('idTask is', idTask);
-        // $(idTask).css('background-color', '#57db85');
         $.ajax({
             method: 'PUT',
             url: '/tasks/' + idTask,
@@ -21,10 +19,20 @@ $(document).ready(function () {
     // delete button function
     $('#toDoList').on('click', '.deleteButton', function () {
         console.log('delete button was clicked');
-
+        var idTask = $(this).parent().parent().data().id;
+        console.log('delete idTask is', idTask);
+        $.ajax({
+            method: 'DELETE',
+            url: '/tasks/' + idTask,
+            success: function (response) {
+                console.log('DELETE is:', response);
+                getTasks();
+            }
+        })
+        
     });
 
-    getTasks(); // adds array to from server.js to DOM on load
+    // getTasks(); // adds array to from server.js to DOM on load
 
     // add new tasks button function
     $('#addTasks').on('click', function () {

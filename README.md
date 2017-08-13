@@ -5,5 +5,11 @@
 - [x] Create server side to store functions
 - [x] Make SQL table and add info to .sql file
 - [x] Connect server side to database storage
-- [ ] Add a 'complete' and 'delete' button
-- [ ] CSS, make complete checked off or green, delete should disappear
+- [x] Add a 'complete' and 'delete' button
+- [x] CSS, make complete checked off or green, delete should disappear
+
+## Hard Mode
+- [ ] Create verification prompt for deletion
+
+## Pro Mode
+- [ ] Complete tasks are at bottom of list and incomplete tasks are always above
