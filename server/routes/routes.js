@@ -43,4 +43,24 @@ router.post('/', function (req, res) {
     })
 })
 
+router.put('/:id', function (req, res) {
+    console.log(req.params.id);
+    console.log('router.put test');
+    pool.connect(function (errorConnectingToDatabase, client, done) {
+        if (errorConnectingToDatabase) {
+            console.log('Error connecting to database:', errorConnectingToDatabase);
+            res.sendStatus(500);
+        } else {
+            client.query("UPDATE tasks_table SET status = 'complete' WHERE id = $1;", [req.params.id], function (errorMakingQuery, result) {
+                if (errorMakingQuery) {
+                    console.log('Error making database query', errorMakingQuery);
+                    res.sendStatus(500);
+                } else {
+                    res.sendStatus(200);
+                }
+            });
+        }
+    });
+});
+
 module.exports = router;
