@@ -94,4 +94,15 @@ function tasksToBody(array) {
         }
         $(taskRow).append(taskItem, taskStatus);
     }
+    // CSS, changes button color when hovering
+    $('.deleteButton').hover(function(){
+        $(this).css('background-color', '#e54b4b')
+    }, function() {
+        $(this).css('background-color', '')
+    })
+    $('.completeButton').hover(function(){
+        $(this).css('background-color', '#57db85')
+    }, function() {
+        $(this).css('background-color', '')
+    })
 }

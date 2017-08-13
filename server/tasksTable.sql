@@ -11,3 +11,8 @@
 -- ('Connect server side to database storage', 'incomplete'),
 -- ('Add a "complete" and "delete" button', 'incomplete'),
 -- ('CSS, make complete checked off or green, delete should disappear', 'incomplete');
+
+
+--      For separating the completed and incomplete tasks
+-- SELECT * FROM tasks_table
+-- ORDER BY status DESC;

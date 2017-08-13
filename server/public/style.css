@@ -1,0 +1,33 @@
+body {
+    font-family: Verdana;
+    font-size: 15px;
+    border-radius: 5%;
+    padding-bottom: 20%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+#toDoList {
+    background-color: #d8d2d2;
+}
+
+#newTasks, #addTasks {
+    background-color: #F1D4B3;
+}
+
+h1 {
+    text-align: center;
+    text-shadow: 2px 2px #F4B4B4;
+}
+
+h2 {
+    text-decoration: underline;
+}
+
+thead {
+    text-decoration: underline;
+}
+
+td {
+    border: solid 1px black;
+}
