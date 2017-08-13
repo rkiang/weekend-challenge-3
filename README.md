@@ -12,4 +12,4 @@
 - [ ] Create verification prompt for deletion
 
 ## Pro Mode
-- [ ] Complete tasks are at bottom of list and incomplete tasks are always above
+- [x] Complete tasks are at bottom of list and incomplete tasks are always above

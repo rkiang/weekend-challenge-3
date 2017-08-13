@@ -20,7 +20,10 @@ $(document).ready(function () {
     $('#toDoList').on('click', '.deleteButton', function () {
         console.log('delete button was clicked');
         var idTask = $(this).parent().parent().data().id;
+        var itemTask = $(this).parent().parent().data().item;
+        console.log('delete itemTask is:', itemTask);
         console.log('delete idTask is', idTask);
+        // confirm('Are you sure you want to delete task:', itemTask)
         $.ajax({
             method: 'DELETE',
             url: '/tasks/' + idTask,
@@ -41,6 +44,7 @@ $(document).ready(function () {
         var taskArray = {
             task: newTask
         }
+        $('#newTasks').val(''); // clears input field after clicked/submitted
         postTasks(taskArray);
     })
 }) // end of DOM function
@@ -80,6 +84,7 @@ function tasksToBody(array) {
         var taskRow = $('<tr></tr>');
         $('#toDoList').append(taskRow);
         taskRow.data('id', tasks.id);
+        taskRow.data('item', tasks.item);
         var taskId = tasks.id;
         var taskItem = $('<td>' + '<li>' + tasks.item + '</li>' + '</td>');
         if (tasks.status == 'incomplete') {

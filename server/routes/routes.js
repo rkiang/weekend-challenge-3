@@ -9,7 +9,7 @@ router.get('/', function (req, res) {
             console.log('Error connecting to database:', errorConnectingToDatabase);
             res.sendStatus(500);
         } else {
-            client.query('SELECT * FROM tasks_table;', function (errorMakingQuery, result) {
+            client.query('SELECT * FROM tasks_table ORDER BY status DESC;', function (errorMakingQuery, result) {
                 done();
                 if (errorMakingQuery) {
                     console.log('Error making database query:', errorMakingQuery);
