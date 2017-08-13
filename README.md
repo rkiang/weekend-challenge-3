@@ -9,7 +9,7 @@
 - [x] CSS, make complete checked off or green, delete should disappear
 
 ## Hard Mode
-- [ ] Create verification prompt for deletion
+- [x] Create verification prompt for deletion
 
 ## Pro Mode
 - [x] Complete tasks are at bottom of list and incomplete tasks are always above

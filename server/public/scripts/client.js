@@ -23,19 +23,17 @@ $(document).ready(function () {
         var itemTask = $(this).parent().parent().data().item;
         console.log('delete itemTask is:', itemTask);
         console.log('delete idTask is', idTask);
-        // confirm('Are you sure you want to delete task:', itemTask)
-        $.ajax({
-            method: 'DELETE',
-            url: '/tasks/' + idTask,
-            success: function (response) {
-                console.log('DELETE is:', response);
-                getTasks();
-            }
-        })
-        
+        if (confirm('Are you sure you want to delete task: ' + itemTask + '?')) {
+            $.ajax({
+                method: 'DELETE',
+                url: '/tasks/' + idTask,
+                success: function (response) {
+                    console.log('DELETE is:', response);
+                    getTasks();
+                }
+            })
+        }
     });
-
-    // getTasks(); // adds array to from server.js to DOM on load
 
     // add new tasks button function
     $('#addTasks').on('click', function () {
